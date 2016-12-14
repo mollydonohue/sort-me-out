@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-
-﻿<html>
+<html lang="en">
 <head>
 	<title>Sort Me Out</title>
 	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -31,6 +30,8 @@
 	<meta name="msapplication-TileImage" content="assets/favicons/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 </head>
+
+
 <body>
 
 <!-- make sure to add this centered text to every page -->
@@ -49,38 +50,35 @@
 	</div>
 </div>
 
-<div class="container-fluid" id="info">
-	<div class="alert  alert-dismissible col-xs-10 col-sm-6 col-sm-offset-3" role="alert">
-  	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	<p>sort me out is a way to view the most popular clothes on ShopStyle sorted by the sustainabilty of the brand, according to rankabrand.com</p>
-	</div>
-</div>
-
-
 <div class="container-fluid">
 	{% for key, value in md.items()%}
+		<h1 style="display: none">{{value.brandedName}}</h1>
 		<div class="row">
-			{% for category in value %}
+  			<div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3">
+                <a href={{value.url}}>
+                    <img src="{{value.imgSrc}}" alt="photo of clothes">
+     				 <div class="caption">
+                     </a>
+        				<p>{{value.brand}} ${{value.price}}</p>
+						<p>{{value.name}}</p>
+					<p>Available at <a href="{{value.url}}" id="retailer">{{value.retailer}}</a></p>
+                     </div>
+						{% for i in range(0, value.filled) %}
+							<img src="assets/filled_leaf.png" alt="filled leaf">
+						{% endfor %}
 
-  			<div class="col-xs-4 col-lg-2">
-				<div class="thumbnail">
-					<a href="/products?cat={{category.id}}">
-					<img class="img-responsive" src="{{category.imgSrc}}" alt="image of top selling {{category.name}} product">
-					<div class="caption">
-						<p>{{category.name}}</a></p>
-					</div>
-				</div>
+						{% for i in range(0, value.unfilled) %}
+							<img src="assets/unfilled_leaf.png" alt="unfilled leaf">
+						{% endfor %}
     		</div>
-			{% endfor %}
+		</div>
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3">
+				<p>{{value.description}}</p>
+			</div>
 		</div>
 	{% endfor %}
 </div>
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>-->
-
-<script src="bootstrap/js/bootstrap.js"></script>
 </body>
 </html>

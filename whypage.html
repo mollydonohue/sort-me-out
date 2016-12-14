@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-
-﻿<html>
+<html lang="en">
 <head>
 	<title>Sort Me Out</title>
 	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -31,12 +30,12 @@
 	<meta name="msapplication-TileImage" content="assets/favicons/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 </head>
-<body>
 
+<body>
 <!-- make sure to add this centered text to every page -->
 <h1>sort me out</h1>
-<div class="container-fluid" id="menu">
-	<div class="row">
+<div class="container-fluid">
+	<div class="row" id="menu">
 		<div class="col-xs-4 text-center">
 		<a href="/"><p>how</p></a>
 		</div>
@@ -49,32 +48,18 @@
 	</div>
 </div>
 
-<div class="container-fluid" id="info">
-	<div class="alert  alert-dismissible col-xs-10 col-sm-6 col-sm-offset-3" role="alert">
-  	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	<p>sort me out is a way to view the most popular clothes on ShopStyle sorted by the sustainabilty of the brand, according to rankabrand.com</p>
+<div class="container-fluid">
+	<div class="row" >
+		<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+		<p>Fashion is the third most polluting industry in the world, and the second largest consumer of water. It’s easy to forget these facts when shopping for clothes. A big way to make an impact is to shop through businesses that produce clothes in a sustainable way. </p>
+<p>“How can a product that needs to be sown, grown, harvested, combed, spun, knitted, cut, and sticked, finished, printed, labelled, packaged and transported cost a couple of Euros?
+-LI EDELKOORT</p>
+<img src="assets/big_filled_leaf.png" alt="green drawn leaf">
+		</div>
 	</div>
 </div>
 
 
-<div class="container-fluid">
-	{% for key, value in md.items()%}
-		<div class="row">
-			{% for category in value %}
-
-  			<div class="col-xs-4 col-lg-2">
-				<div class="thumbnail">
-					<a href="/products?cat={{category.id}}">
-					<img class="img-responsive" src="{{category.imgSrc}}" alt="image of top selling {{category.name}} product">
-					<div class="caption">
-						<p>{{category.name}}</a></p>
-					</div>
-				</div>
-    		</div>
-			{% endfor %}
-		</div>
-	{% endfor %}
-</div>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-
-﻿<html>
+<html lang="en">
 <head>
 	<title>Sort Me Out</title>
 	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -32,49 +31,37 @@
 	<meta name="theme-color" content="#ffffff">
 </head>
 <body>
-
-<!-- make sure to add this centered text to every page -->
+    <!-- make sure to add this centered text to every page -->
 <h1>sort me out</h1>
-<div class="container-fluid" id="menu">
-	<div class="row">
-		<div class="col-xs-4 text-center">
-		<a href="/"><p>how</p></a>
-		</div>
-		<div class="col-xs-4 text-center">
-		<a href="/why"><p>why</p></a>
-		</div>
-		<div class="col-xs-4 text-center">
-		<a href="/what"><p>what</p></a>
-		</div>
-	</div>
-</div>
-
-<div class="container-fluid" id="info">
-	<div class="alert  alert-dismissible col-xs-10 col-sm-6 col-sm-offset-3" role="alert">
-  	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	<p>sort me out is a way to view the most popular clothes on ShopStyle sorted by the sustainabilty of the brand, according to rankabrand.com</p>
-	</div>
-</div>
-
-
-<div class="container-fluid">
-	{% for key, value in md.items()%}
+	<div class="container-fluid" id="menu">
 		<div class="row">
-			{% for category in value %}
-
-  			<div class="col-xs-4 col-lg-2">
-				<div class="thumbnail">
-					<a href="/products?cat={{category.id}}">
-					<img class="img-responsive" src="{{category.imgSrc}}" alt="image of top selling {{category.name}} product">
-					<div class="caption">
-						<p>{{category.name}}</a></p>
-					</div>
-				</div>
-    		</div>
-			{% endfor %}
+			<div class="col-xs-4 text-center">
+			<a href="/"><p>how</p></a>
+			</div>
+			<div class="col-xs-4 text-center">
+			<a href="/why"><p>why</p></a>
+			</div>
+			<div class="col-xs-4 text-center">
+			<a href="/what"><p>what</p></a>
+			</div>
 		</div>
-	{% endfor %}
-</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1">
+				<p>sort me out is made to make shopping for sustainable clothes easier. without having to compromise on your existing style choices and do the neck-crunching work of researching, we present to you an arrangement of clothes sorted by the brand’s policies on:
+				- carbon emissions
+				- policies regarding recycled material and chemicals
+				- labor conditions and fair trade
+
+				More information can be found at rankabrand.com</p>
+					<p>Made with <img src="assets/heart_1.png" alt="tiny green heart"> by <a href="students.washington.edu/donoh95">Molly Donohue</a></p>
+			</div>
+		</div>
+	</div>
+
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

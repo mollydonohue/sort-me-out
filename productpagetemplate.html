@@ -1,58 +1,90 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sort Me</title>
+	<title>Sort Me Out</title>
 	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 	<!--<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">-->
 	<link href="stylesheets/main.css" rel="stylesheet">
+
+	<!-- Typekit trucs -->
+	<script src="https://use.typekit.net/wcf0pve.js"></script>
+	<script>try{Typekit.load({ async: true });}catch(e){}</script>
+
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="apple-touch-icon" sizes="57x57" href="assets/favicons/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="assets/favicons/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="assets/favicons/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/favicons/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="assets/favicons/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="assets/favicons/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="assets/favicons/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/favicons/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+	<link rel="manifest" href="assets/favicons/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="assets/favicons/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
 </head>
 <body>
 
+<!-- make sure to add this centered text to every page -->
 <h1>sort me out</h1>
-<div class="container-fluid">
+<div class="container-fluid" id="menu">
 	<div class="row">
-		<div class="col-md-4 col-sm-4 col-xs-3">
-		<p>how</p>
+		<div class="col-xs-4 text-center">
+		<a href="/"><p>how</p></a>
 		</div>
-		<div class="col-md-4 col-sm-4 col-xs-3">
-		<p>why</p>
+		<div class="col-xs-4 text-center">
+		<a href="/why"><p>why</p></a>
 		</div>
-		<div class="col-md-4 col-sm-4 col-xs-3">
-		<p>what</p>
+		<div class="col-xs-4 text-center">
+		<a href="/what"><p>what</p></a>
 		</div>
 	</div>
 </div>
+
 
 <div class="container-fluid">
 
 	{% for key, value in md.items()%}
 
-		<h1>{{key}}</h1>
-
-		{% for product in value %}
+		<h2>{{key}}</h2>
 		<div class="row">
-  			<div class="col-xs-12 col-sm-6 col-md-4">
+		{% for product in value %}
+
+  				<div class="col-xs-6 col-md-4">
     			<div class="thumbnail">
-    				<a href={{product.url}}>
+    				<a href=/id?id={{product.id}} target="_blank">
      				 <img src="{{product.imgSrc}}" alt="photo of clothes">
      				 <div class="caption">
 
-        			<p>{{product.name}}: {{product.brandRating}}/36</p>
+        				<p>{{product.brandedName}} ${{product.price}}</p></a>
+						 {% for i in range(0, product.filled) %}
+						<img src="assets/filled_leaf.png" alt="filled leaf">
+					{% endfor %}
+					{% for i in range(0, product.unfilled) %}
+						<img src="assets/unfilled_leaf.png" alt="unfilled leaf">
+					{% endfor %}
                      </div>
-      				</a>
+
       			</div>
     		</div>
 
-  		{% endfor %}
-  	{% endfor %}
-            </div>
+  		{% endfor %} <!-- end looping through products -->
+		</div> <!-- end row -->
+	{% endfor %}
 </div>
 
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+<!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css"> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
 <script src="bootstrap/js/bootstrap.js"></script>-->
 

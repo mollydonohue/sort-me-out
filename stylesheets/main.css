@@ -1,10 +1,25 @@
 body {
-    color: #05ff84;
+    color: #000000;
+    font-family: "Neuzeit Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
 }
 
-.container a {
-    color: black;
-}
-h1 {
+
+p, a {
     text-align: center;
+    color: #000000;
+}
+
+#menu {
+    font-size: 30px;
+}
+
+h1 {
+    color: #64CC8B;
+    font-weight: 600;
+    font-size: 36px;
+}
+
+#retailer {
+    font-weight: 600;
 }
