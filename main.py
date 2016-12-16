@@ -115,9 +115,10 @@ class Product():
     """ A singular item of clothing """
     def __init__(self, product):
         self.imgSrc = product["image"]["sizes"]["Large"]["url"]
+        self.bestImgSrc = product["image"]["sizes"]["Best"]["url"]
         self.name = product["name"].encode('ascii', 'replace')
         self.brandedName = product["brandedName"].encode('ascii', 'replace')
-        self.price = product["price"]
+        self.price = int(product["price"])
         self.retailer = product["retailer"]["name"].encode('ascii', 'replace')
         self.description = product["description"]
         # if a brand has a special character, it may not be included in json

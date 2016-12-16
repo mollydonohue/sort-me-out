@@ -4,22 +4,41 @@ body {
     text-align: center;
 }
 
-
-p, a {
-    text-align: center;
-    color: #000000;
-}
-
-#menu {
-    font-size: 30px;
-}
-
 h1 {
     color: #64CC8B;
     font-weight: 600;
     font-size: 36px;
 }
 
+p, a {
+    text-align: center;
+    color: #000000;
+}
+
+a:hover {
+     color: #64CC8B;
+}
+#pullquote {
+    font-weight: 600;
+}
+
+#menu {
+    font-size: 30px;
+}
+#personal_footer {
+    margin-top: 10px;
+}
+
+img{
+    margin: 0 auto;
+}
+
 #retailer {
     font-weight: 600;
 }
+
+
+ul { margin-top: 10px; margin-bottom: 10px; padding: 0; }
+ul li { margin: 0; padding: 0; list-style: none; }
+ul li a { color: blue; }
+ul li div { display: none; }
