@@ -39,7 +39,7 @@ def getClothes(type, numLim):
     filters = "&cat=%s&sort=Popular" % (type)
     limit = "&limit=%s" % (numLim)
     clothes_request = "%s?%s%s%s" % (base_url, apiKey, filters, limit)
-    print (clothes_request)
+    #print (clothes_request)
     safe_request = safeGet(clothes_request)
     if not safe_request == None:
         clothes_request_json = safe_request.read()
@@ -47,21 +47,18 @@ def getClothes(type, numLim):
         return json.loads(clothes_request_json)
 
 # since the product id is not a parameter, i use a different REST call
-
 # returns a single product object if given Product id
 # from Products API
 def getSingle(id):
+    # http://api.shopstyle.com/api/v2/products/359131344?pid=YOUR_API_KEY
     base_url = "http://api.shopstyle.com/api/v2/products"
     apiKey = "pid=uid7936-31095456-22"
     clothes_request = "%s/%s?%s" % (base_url, id, apiKey)
-    print (clothes_request)
+    #print (clothes_request)
     safe_request = safeGet(clothes_request)
     if not safe_request == None:
         clothes_request_json = safe_request.read()
-        # print pretty(json.loads(clothes_request_json))
         return json.loads(clothes_request_json)
-# http://api.shopstyle.com/api/v2/products/359131344?pid=YOUR_API_KEY
-
 
 # from Categories API
 def getCategories():
@@ -74,7 +71,6 @@ def getCategories():
         return json.loads(cats_request_json)
 
 def getRating(brand):
-
     data = memcache.get(key=brand)
     if data is not None:
         logging.info("from memcash: " + str(data))
@@ -106,9 +102,6 @@ def getRating(brand):
             val =  0
         memcache.add(key=brand, value=val, time=3600)
         return val
-
-    #ANN TAYLOR and OLD NAVY brand names are not showin up
-
 
 # pass a single dictionary to this and make a product object
 class Product():
@@ -165,7 +158,8 @@ def sortClothes(type):
     masterd[type] = sortClothes
     return masterd
 
-# masterd =  {'sweaters': ['Product1', 'Proudct2', 'Product3 '],
+# example of format thus far
+# masterd =  {'sweaters': ['Product1', 'Product2', 'Product3 '],
 # 'jeans' : ['Product1', 'Proudct2', 'Product3 '],
 #  'tops' : ['Product1', 'Proudct2', 'Product3 '],}
 JINJA_ENVIRONMENT = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -224,8 +218,6 @@ class WhatHandler(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('whatpage.html')
         self.response.write(template.render())
 
-
-
 application = webapp2.WSGIApplication([ \
                                         ('/' , MainHandler),
                                         ('/products', ProductsHandler),
@@ -238,18 +230,10 @@ application = webapp2.WSGIApplication([ \
                                       ],
                                     debug=True)
 
-# to do paging
-#
+# TODO paging
 # offset = page number * 10 -1
 # for doing pagination with the rrquests
-
 
 # if page number is 1, show only a next
 # if page number is greater than 1, forward and backward page is page nuber + 1 _ 1
 # dynamically generate the links
-
-#dynamically generate the categories and the images to display
-
-
-
-
